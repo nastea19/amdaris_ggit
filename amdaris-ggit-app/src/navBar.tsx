@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import logo from './logo.svg';
 import './App.css';
 import About from './components/about';
@@ -9,32 +9,23 @@ import Movies from './components/movies';
 import SingIn from './components/sign-in';
 import LogOut from './components/log-out';
 
-export function NavBar() {
+import { navLinks, NavLinkProps } from "./components/links/navbar-routing";
+
+const NavigationBar: React.FC = () => {
   return (
-    <nav >
-      <NavLink to="./components/about">
-        About
-      </NavLink>
-
-      <NavLink to="/components/Books">
-        Books
-      </NavLink>
-
-      <NavLink to="./components/profile">
-        Profile
-      </NavLink>
-
-      <NavLink to="./components/movies">
-        Movies
-      </NavLink>
-
-      <NavLink to="./components/sign-in">
-        Sing-In
-      </NavLink>
-
-      <NavLink to="/components/log-out">
-        Log-Out
-      </NavLink>
+    <nav>
+      <ul>{navLinks.map((props) => getComponent(props))}</ul>
     </nav>
   );
+};
+
+function getComponent(props: NavLinkProps) {
+  const { path, title } = props;
+  return (
+    <li>
+      <Link to={path}>{title}</Link>
+    </li>
+  );
 }
+
+export default NavigationBar;

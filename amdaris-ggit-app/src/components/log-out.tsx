@@ -1,10 +1,11 @@
 import React from 'react';
-import './App.css';
+import '../App.css';
 
 export function LogOut() {
   return (
     <div className="App">
-      LogOut Component
+      LogOut Component <br />
+      YEY ROUTING IS WORKING
     </div>
   );
 }

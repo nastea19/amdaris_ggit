@@ -1,12 +1,16 @@
 import React from 'react';
-import './App.css';
+import '../App.css';
+import { useForm, Controller } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
-export function SingIn() {
-  return (
-    <div className="App">
-      SingIn Component
-    </div>
-  );
+
+
+function SingIn() {
+  const navigate = useNavigate();
+
+  const onSubmit = (data: FormData) => {
+    navigate("/");
+  };
 }
 
 export default SingIn;

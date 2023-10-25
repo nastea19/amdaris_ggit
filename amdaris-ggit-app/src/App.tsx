@@ -1,6 +1,10 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { NavLinkProps, navLinks } from "./components/links/navbar-routing";
 import './App.css';
-import { NavBar } from './navBar';
+import NavigationBar from "./navBar";
+
+
 import About from './components/about';
 import Books from './components/books';
 import Profile from './components/profile';
@@ -8,16 +12,20 @@ import Movies from './components/movies';
 import SingIn from './components/sign-in';
 import LogOut from './components/log-out';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          About Page
-        </p>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <NavigationBar />
+        <Routes>{navLinks.map((props) => getComponent(props))}</Routes>
+      </div>
+    </Router>
   );
+};
+
+function getComponent(props: NavLinkProps) {
+  const { path, component, title } = props;
+  return <Route path={path} Component={component} key={title} />;
 }
 
 export default App;
