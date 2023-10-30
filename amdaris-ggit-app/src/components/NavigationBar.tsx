@@ -26,7 +26,8 @@ export default function NavigationBar() {
           <Typography sx={{ minWidth: 100 }}><a href="/about">About</a></Typography>
           <Typography sx={{ minWidth: 100 }}><a href="/books">Books</a></Typography>
           <Typography sx={{ minWidth: 100 }}><a href="/movies">Movies</a></Typography>
-          <Typography sx={{ minWidth: 100 }}><a href="/log-in">Log In</a></Typography>
+          <Typography sx={{ minWidth: 100 }}><a href="/sign-in">Sign In</a></Typography>
+          <Typography sx={{ minWidth: 100 }}><a href="/sign-up">Sign Up</a></Typography>
           
 
 
