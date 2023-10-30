@@ -4,7 +4,11 @@ import '../App.css';
 export function About() {
   return (
     <div className="App">
-      About Component
+      
+      Hello!
+      <p>
+        HI
+      </p>
     </div>
   );
 }
