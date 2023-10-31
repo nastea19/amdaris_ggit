@@ -4,6 +4,8 @@ import SignIn from "../sign-in";
 import LogOut from "../log-out";
 import Books from "../books";
 import Movies from "../movies";
+import SignUp from "../sign-up";
+
 
 
 export const paths = {
@@ -13,6 +15,7 @@ export const paths = {
   About: "",
   Books: "/books",
   Movies: "/movies",
+  SignUp: "/sign-up",
 };
 
 export interface NavLinkProps {
@@ -24,6 +27,7 @@ export interface NavLinkProps {
 export const navLinks = [
   { title: `Log Out`, path: paths.LogOut, component: LogOut },
   { title: "Sign In", path: paths.SignIn, component: SignIn },
+  { title: "Sign Up", path: paths.SignUp, component: SignUp },
   { title: "About", path: paths.About, component: About },
   { title: "Profile", path: paths.Profile, component: Profile },
   { title: "Books", path: paths.Books, component: Books },
