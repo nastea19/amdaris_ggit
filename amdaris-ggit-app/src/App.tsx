@@ -1,18 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { NavLinkProps, navLinks } from "./components/links/navbar-routing";
-import './App.css';
-import NavigationBar from "./navBar";
+import NavigationBar from './components/NavigationBar';
 
-
-
-import About from './components/about';
-import Books from './components/books';
-import Profile from './components/profile';
-import Movies from './components/movies';
-import SignIn from './components/sign-in';
-import LogOut from './components/log-out';
-import SignUp from './components/sign-up';
 
 const App: React.FC = () => {
   return (
@@ -24,6 +14,7 @@ const App: React.FC = () => {
     </Router>
   );
 };
+
 
 function getComponent(props: NavLinkProps) {
   const { path, component, title } = props;

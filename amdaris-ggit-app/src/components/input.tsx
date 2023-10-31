@@ -21,6 +21,7 @@ const Input: React.FC<InputProps> = ({ items, setItems }) => {
 
   return (
     <div>
+      <div>
         <input
           type="text"
           placeholder="item"
@@ -28,7 +29,7 @@ const Input: React.FC<InputProps> = ({ items, setItems }) => {
           onChange={(e) => setInputValue(e.target.value)}
         />
         <button onClick={handleSubmit}>add item</button>
-      
+      </div>
       <div className="item-list-container">
         {items.length > 0 &&
           items.map((item) => (
