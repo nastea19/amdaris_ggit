@@ -1,18 +1,44 @@
 import React from 'react';
 import '../App.css';
+import { Box, Button, Link } from '@mui/material';
 
 export function Profile() {
   return (
-    <><><div className="App">
+    <><><><><div className="App">
       Profile Component
     </div>
-      <h1>
-        Profile Page
-      </h1></>
-      <h2>
-        User's Info from Sign-IN
-      </h2></>
 
+      <p>
+        Profile Page
+      </p></>
+
+      <p>
+        User's Info from Sign-IN
+      </p></>
+
+
+      <Box>
+        <p>
+          First name:
+        </p>
+
+        <p>
+          Last name:
+        </p>
+
+        <p>
+          Email:
+        </p>
+
+        <p>
+          Gender:
+        </p>
+
+      </Box>
+      
+      </><Link href="/log-out">
+        <Button variant="text">Log Out</Button>
+      </Link></>
   );
 }
 
