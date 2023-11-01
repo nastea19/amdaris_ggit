@@ -1,24 +1,29 @@
-import React from 'react';
+import React, { SyntheticEvent } from 'react';
 import '../App.css';
+import { Tab, Tabs } from '@mui/material';
 
 export function Movies() {
+  function handleChange(event: SyntheticEvent<Element, Event>, value: any): void {
+    throw new Error('Function not implemented.');
+  }
+
   return (
-    <><><><div className="App">
-      Movies Component, but I'll use it as About Component
+    <div className="App">
+      <Tabs centered>
+      <Tab label="I want to Watch" />
+      <Tab label="I'm watching"/>
+      <Tab label="I watched" />
+      </Tabs>
+
+
+
+
     </div>
 
-      <p>
-        Welcome to our page !!!
-      </p></>
 
-      <p>
-        Our site helps you keep track of all your Books and Movies/Series.
-      </p></>
-      
-      <p>
-        More features coming soon...
-      </p></>
 
+
+    
   );
 }
 
