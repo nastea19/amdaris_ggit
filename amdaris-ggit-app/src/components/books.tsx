@@ -1,27 +1,41 @@
-import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-// import Input from './input';
+import BookTable from "./book-table";
+import { addBook, getBooks } from "../services/book-service";
 
-// interface Book with fields(id, name, author …
-interface Book {
+export interface Book {
   id: number;
   name: string;
   author: string;
   language: string;
+  readStatus: string;
 }
 
-
 export default function Books() {
-  const [value, setValue] = React.useState("one");
+  const [value, setValue] = React.useState("inProgress");
+  const books = getBooks();
+  const [booksLength, setLength] = React.useState(books.length);
+  const finishedBooks = books.filter((x) => x.readStatus === "finished");
+  const inPlanBooks = books.filter((x) => x.readStatus === "inPlan");
+  const inProgressBooks = books.filter((x) => x.readStatus === "inProgress");
+
+  const [rowBooks, setBooks] = React.useState<Book[]>(inProgressBooks);
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+    if (newValue === "inPlan") {
+      setBooks(inPlanBooks);
+    } else if (newValue === "finished") {
+      setBooks(finishedBooks);
+    } else if (newValue === "inProgress") {
+      setBooks(inProgressBooks);
+    }
+
     setValue(newValue);
   };
 
-return (
+  return (
     <Box sx={{ width: "100%" }}>
       <Tabs
         value={value}
@@ -30,12 +44,20 @@ return (
         indicatorColor="secondary"
         aria-label="secondary tabs example"
       >
-        <Tab value="one" label="In progress" />
-        <Tab value="two" label="Finished" />
-        <Tab value="three" label="In plan" />
+        <Tab value="inProgress" label="In progress" />
+        <Tab value="finished" label="Finished" />
+        <Tab value="inPlan" label="In plan" />
       </Tabs>
+
+      <BookTable
+        books={rowBooks}
+        onAddBook={(newBook: Book) => {
+          inProgressBooks.push(newBook);
+          setLength(booksLength + 1);
+          addBook(newBook);
+        }}
+        booksLength={booksLength}
+      />
     </Box>
   );
 }
-
-

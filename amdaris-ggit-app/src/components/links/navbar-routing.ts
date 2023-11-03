@@ -6,13 +6,11 @@ import Books from "../books";
 import Movies from "../movies";
 import SignUp from "../sign-up";
 
-
-
 export const paths = {
   LogOut: "/log-out",
   SignIn: "/sign-in",
   Profile: "/profile",
-  About: "",
+  About: "/about",
   Books: "/books",
   Movies: "/movies",
   SignUp: "/sign-up",
