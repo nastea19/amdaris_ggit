@@ -15,6 +15,9 @@ import {
 } from "@mui/material";
 import { Book } from "./books";
 
+// import CancelIcon from "@mui/icons-material/Cancel"; 
+
+
 interface BookTableProps {
   books: Book[];
   onAddBook: (newBook: Book) => void;
@@ -77,7 +80,19 @@ export default function BookTable({
       return book;
     });
     setEditedBooks(updatedBooks);
+
   };
+
+  // const handleCancelClick = () => {
+  //   setAddMode(false);
+  //   setNewBook({
+  //     id: 0,
+  //     name: "",
+  //     author: "",
+  //     language: "",
+  //     readStatus: "inProgress",
+  //   });
+  // };
 
   return (
     <TableContainer component={Paper}>
@@ -131,6 +146,10 @@ export default function BookTable({
                   <IconButton onClick={handleSaveClick}>
                     <SaveIcon />
                   </IconButton>
+                  // <IconButton onClick={handleCancelClick}>
+                  //   <CancelIcon />
+                  // </IconButton>
+                
                 ) : (
                   <IconButton onClick={() => handleEditClick(row.id)}>
                     <EditIcon />

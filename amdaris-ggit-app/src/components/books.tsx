@@ -36,7 +36,7 @@ export default function Books() {
   };
 
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
       <Tabs
         value={value}
         onChange={handleChange}

@@ -18,8 +18,14 @@ function SignIn() {
 
   const onSubmit = (data: FormData) => {
     console.log(data);
-    toast.success("Signed in successfully");
-    toast.error("Error");
+    toast.success("Signed in successfully",{
+      position: 'top-right',
+      autoClose: 3000, 
+    });
+    toast.error("Error", {
+      position: 'top-right',
+      autoClose: 3000, // 3 seconds
+    });
     navigate("/");
   };
 

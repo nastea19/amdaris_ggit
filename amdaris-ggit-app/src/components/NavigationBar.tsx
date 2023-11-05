@@ -9,6 +9,8 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
 
+import '../App.css';
+
 export default function NavigationBar() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -89,6 +91,25 @@ export default function NavigationBar() {
           </MenuItem>
         </Menu>
       </div>
+      <div className="footer">
+  <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <div className="col-md-4 d-flex align-items-center">
+      <a href="/" className="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+        <svg className="bi" width="30" height="24"><use xlinkHref="#bootstrap"></use></svg>
+      </a>
+    </div>
+
+    <ul className="nav col-md-4 justify-content-end list-unstyled d-flex">
+      <li>Popova Anastasia</li>
+      <li>Moldovan Iana</li>
+      <li>Ceban Ana</li>
+    </ul>
+    <div className="text-center col-md-4 ">
+      <span className="mb-3 mb-md-0 text-body-secondary">© Girls Go IT Amdaris Internship 2023</span>
+    </div>
+  </footer>
+</div>
+
     </React.Fragment>
   );
 }
