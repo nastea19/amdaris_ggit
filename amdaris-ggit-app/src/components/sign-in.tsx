@@ -1,10 +1,10 @@
-import React from 'react';
-import '../App.css';
+import React from "react";
+import "../App.css";
 import { useForm, Controller } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { loginUser } from "../services/auth-service";
 
 interface FormData {
   email: string;
@@ -18,15 +18,19 @@ function SignIn() {
 
   const onSubmit = (data: FormData) => {
     console.log(data);
-    toast.success("Signed in successfully",{
-      position: 'top-right',
-      autoClose: 3000, 
+    toast.success("Signed in successfully", {
+      position: "top-right",
+      autoClose: 3000,
     });
     toast.error("Error", {
-      position: 'top-right',
+      position: "top-right",
       autoClose: 3000, // 3 seconds
     });
-    navigate("/");
+
+    const isLoginSuccess = loginUser(data.email, data.password);
+    if (isLoginSuccess) {
+      navigate("/");
+    }
   };
 
   const validationRules = {

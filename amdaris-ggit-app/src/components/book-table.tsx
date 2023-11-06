@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import EditIcon from "@mui/icons-material/Edit";
 import SaveIcon from "@mui/icons-material/Save";
+import CancelIcon from "@mui/icons-material/Cancel";
 import AddIcon from "@mui/icons-material/Add";
 import {
   Paper,
@@ -12,22 +13,23 @@ import {
   TableRow,
   IconButton,
   Input,
+  MenuItem,
+  Select,
 } from "@mui/material";
 import { Book } from "./books";
-
-// import CancelIcon from "@mui/icons-material/Cancel"; 
-
 
 interface BookTableProps {
   books: Book[];
   onAddBook: (newBook: Book) => void;
   booksLength: number;
+  onEditBook: (book: Book, bookId: number) => void;
 }
 
 export default function BookTable({
   books,
   onAddBook,
   booksLength,
+  onEditBook,
 }: BookTableProps) {
   const [editMode, setEditMode] = useState(false);
   const [addMode, setAddMode] = useState(false);
@@ -46,10 +48,11 @@ export default function BookTable({
     setEditItemId(id);
   };
 
-  const handleSaveClick = () => {
+  const handleSaveClick = (row: Book) => {
     setEditMode(false);
     setEditItemId(null);
     setEditedBooks([...editedBooks]);
+    onEditBook(row, row.id);
   };
 
   const handleSaveNewItemClick = () => {
@@ -80,19 +83,13 @@ export default function BookTable({
       return book;
     });
     setEditedBooks(updatedBooks);
-
   };
 
-  // const handleCancelClick = () => {
-  //   setAddMode(false);
-  //   setNewBook({
-  //     id: 0,
-  //     name: "",
-  //     author: "",
-  //     language: "",
-  //     readStatus: "inProgress",
-  //   });
-  // };
+  const handleCancelClick = () => {
+    setAddMode(false);
+    setEditMode(false);
+    setEditedBooks(books);
+  };
 
   return (
     <TableContainer component={Paper}>
@@ -102,6 +99,7 @@ export default function BookTable({
             <TableCell>Name</TableCell>
             <TableCell>Author</TableCell>
             <TableCell>Language</TableCell>
+            <TableCell>Read Status</TableCell>
             <TableCell>Action</TableCell>
           </TableRow>
         </TableHead>
@@ -142,14 +140,30 @@ export default function BookTable({
                 )}
               </TableCell>
               <TableCell>
-                {editMode ? (
-                  <IconButton onClick={handleSaveClick}>
-                    <SaveIcon />
-                  </IconButton>
-                  // <IconButton onClick={handleCancelClick}>
-                  //   <CancelIcon />
-                  // </IconButton>
-                
+                {editMode && editItemId === row.id ? (
+                  <Select
+                    value={row.readStatus}
+                    onChange={(e) => handleInputChange(e, row.id, "readStatus")}
+                  >
+                    <MenuItem value="inProgress">In Progress</MenuItem>
+                    <MenuItem value="finished">Finished</MenuItem>
+                    <MenuItem value="inPlan">In Plan</MenuItem>
+                  </Select>
+                ) : (
+                  row.readStatus
+                )}
+              </TableCell>
+              <TableCell>
+                {editMode && editItemId === row.id ? (
+                  <>
+                    <IconButton onClick={() => handleSaveClick(row)}>
+                      <SaveIcon />
+                    </IconButton>
+
+                    <IconButton onClick={handleCancelClick}>
+                      <CancelIcon />
+                    </IconButton>
+                  </>
                 ) : (
                   <IconButton onClick={() => handleEditClick(row.id)}>
                     <EditIcon />

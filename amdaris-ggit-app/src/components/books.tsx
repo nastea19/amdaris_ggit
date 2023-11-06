@@ -3,7 +3,7 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import BookTable from "./book-table";
-import { addBook, getBooks } from "../services/book-service";
+import { addBook, getBooks, updateBook } from "../services/book-service";
 
 export interface Book {
   id: number;
@@ -36,7 +36,9 @@ export default function Books() {
   };
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+    <Box
+      sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+    >
       <Tabs
         value={value}
         onChange={handleChange}
@@ -57,6 +59,9 @@ export default function Books() {
           addBook(newBook);
         }}
         booksLength={booksLength}
+        onEditBook={(book: Book, bookId: number) => {
+          updateBook(bookId, book);
+        }}
       />
     </Box>
   );

@@ -1,9 +1,10 @@
-import React from 'react';
-import '../App.css';
+import React from "react";
+import "../App.css";
 import { useForm, Controller } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { User, registerUser } from "../services/auth-service";
 
 interface FormData {
   firstName: string;
@@ -21,8 +22,19 @@ function SignUp() {
 
   const onSubmit = (data: FormData) => {
     console.log(data);
-    toast.success("Signed up successfully");
-    toast.error("Error");
+    const user: User = {
+      id: 0,
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email,
+      password: data.password,
+      gender: data.gender,
+      age: data.age,
+    };
+    const isRegisterSuccess = registerUser(user);
+    if (isRegisterSuccess) {
+      toast.success("Signed up successfully");
+    }
     navigate("/");
   };
 

@@ -23,6 +23,18 @@ export const addBook = (newBook: Book): void => {
   saveBooks(updatedBooks);
 };
 
+// Function to update a book's details by ID
+export const updateBook = (bookId: number, updatedBook: Book): void => {
+  const existingBooks = getBooks();
+  const updatedBooks = existingBooks.map((book) => {
+    if (book.id === bookId) {
+      return { ...book, ...updatedBook };
+    }
+    return book;
+  });
+  saveBooks(updatedBooks);
+};
+
 // Function to delete a book by ID
 export const deleteBook = (bookId: number): void => {
   const existingBooks = getBooks();
