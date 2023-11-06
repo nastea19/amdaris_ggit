@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 const App: React.FC = () => {
   return (
     <Router>
-      <div>
+      <div className="all">
         <NavigationBar />
         <Routes>{navLinks.map((props) => getComponent(props))}</Routes>
         <ToastContainer />

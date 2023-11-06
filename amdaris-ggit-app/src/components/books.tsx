@@ -1,4 +1,5 @@
 import React from "react";
+import "../App.css"
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
@@ -37,7 +38,12 @@ export default function Books() {
 
   return (
     <Box
-      sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+      sx={{ 
+        display: "flex", 
+        flexDirection: "column", 
+        alignItems: "center",
+        fontFamily: "Libre Baskerville, serif",
+      }}
     >
       <Tabs
         value={value}
@@ -45,6 +51,11 @@ export default function Books() {
         textColor="secondary"
         indicatorColor="secondary"
         aria-label="secondary tabs example"
+        sx={{
+          // Add margin to create space
+          margin: "10px",
+          fontFamily: "Libre Baskerville, serif",
+        }}
       >
         <Tab value="inProgress" label="In progress" />
         <Tab value="finished" label="Finished" />

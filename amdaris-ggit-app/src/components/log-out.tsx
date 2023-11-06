@@ -4,8 +4,7 @@ import '../App.css';
 export function LogOut() {
   return (
     <div className="App">
-      LogOut Component <br />
-      YEY ROUTING IS WORKING
+      LogOut Component
     </div>
   );
 }

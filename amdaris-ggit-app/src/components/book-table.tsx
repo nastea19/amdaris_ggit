@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "../App.css"
 import EditIcon from "@mui/icons-material/Edit";
 import SaveIcon from "@mui/icons-material/Save";
 import CancelIcon from "@mui/icons-material/Cancel";
@@ -17,6 +18,7 @@ import {
   Select,
 } from "@mui/material";
 import { Book } from "./books";
+import { FormatBoldOutlined } from "@mui/icons-material";
 
 interface BookTableProps {
   books: Book[];
@@ -93,9 +95,17 @@ export default function BookTable({
 
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 700 }} aria-label="customized table">
+      <Table sx={{ 
+        minWidth: 700,
+        fontFamily: "Libre Baskerville, serif",
+        }} aria-label="customized table" className="books-table">
         <TableHead>
-          <TableRow>
+        <TableRow 
+          sx={{ 
+            fontFamily: "Libre Baskerville, serif",
+            fontWeight: "bold"
+          }}
+        >
             <TableCell>Name</TableCell>
             <TableCell>Author</TableCell>
             <TableCell>Language</TableCell>
