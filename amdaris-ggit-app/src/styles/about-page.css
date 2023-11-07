@@ -1,0 +1,54 @@
+.about-style {
+  color: #1A237E;
+  font-family: "Libre Baskerville, serif";
+  text-align: center;
+  /* font-family: "Source Sans Pro"; */
+}
+
+.welcome-style {
+  font-family: "Source Sans Pro";
+  font-size: 400%;
+  margin: 12%;
+}
+
+.about-info {
+  font-family: "Source Sans Pro";
+  font-size: 200%;
+  margin: 5%;
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+.regular-text {
+  font-size: 150%;
+  font-weight: bold;
+}
+
+.sign-up-button {
+  color: #E3AADD;
+  background-color: #000000;
+}
+
+.why-text {
+  font-size: 150%;
+  color: #1A237E;
+  margin-bottom: 100px;
+}
+
+.small-text {
+  font-size: 100%;
+}
+
+.choose-books {
+  font-size: 150%;
+  margin-left: 400px;
+  margin-right: 10px;
+}
+
+.choose-movies {
+  font-size: 150%;
+  margin-left: 100px;
+  margin-right: 400px;
+}

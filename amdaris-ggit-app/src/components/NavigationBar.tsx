@@ -22,7 +22,7 @@ export default function NavigationBar() {
   };
   return (
     <React.Fragment>
-      <div style={{ display: 'grid', placeItems: 'center', height: '100px' }}>
+      <div className='header'>
         <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
           
           <Typography sx={{ minWidth: 100 }}><a href="/about">About</a></Typography>

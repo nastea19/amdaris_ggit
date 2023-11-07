@@ -1,67 +1,67 @@
 import React from "react";
 import "../App.css";
-import { NavLink } from "react-router-dom";
 import { Button, Divider, Link } from "@mui/material";
+import "../styles/about-page.css";
 
 export function About() {
   return (
-    <>
-      <>
+      <div className="about-style">
         <>
           <>
-            <div className="App">About</div>
+            <>
+              <Divider />
 
-            <Divider />
+              <p className="welcome-style">Welcome to our page !!!</p>
+            </>
 
-            <p>Welcome to our page !!!</p>
+            <p className="about-info">
+              Our site helps you keep track of <span className="bold-text">all your Books and Movies</span>.
+            </p>
           </>
 
-          <p>
-            Our site helps you keep track of all your Books and Movies/Series.
-          </p>
+          <div className="why-text">
+            <Divider />
+
+            <p className="about-info">Why should you choose our app ?</p>
+
+            <p>1. It saves you A LOT of time</p>
+
+            <p>2. Keeps track of all your favourite things</p>
+
+            <p>3. Helps from forgetting where you have stopped</p>
+
+          </div>
+
+          <Divider />
+
+          <p className="regular-text">Create a new account</p>
+
+          <Link href="/sign-up">
+            <Button variant="contained">Sign Up</Button>
+          </Link>
+
+          <p className="small-text"> If you already have an account, <a href="/sign-in">Sign In</a></p>
+
+          <Divider />
         </>
 
-        <p>Create a new acount</p>
+        <div className="why-text"> 
 
-        <Link href="/sign-up">
-          <Button variant="contained">Sign Up</Button>
-        </Link>
+          <p className="about-info">What would you like to organise ?</p>
 
-        <p>If you already have an account :</p>
+          <a className="choose-books" href="/books">Books</a>
 
-        <Link href="/sign-in">
-          <Button variant="outlined">Sign In</Button>
-        </Link>
+          <a className="choose-movies" href="/movies">Movies</a>
+        
+        </div>
+
 
         <Divider />
 
-        <p>What would you like to organise ?</p>
-      </>
+          <p className="small-text">More features coming soon...</p>
 
-      <Link href="/books">
-        <Button variant="text">Books</Button>
-      </Link>
+      </div>
 
-      <Link href="/movies">
-        <Button variant="text">Movies</Button>
-      </Link>
-
-      <Divider />
-
-      <p>Why should you choose us ?</p>
-
-      <p>1. We can save you A LOT of time</p>
-
-      <p>2. We help you keep track of all your favourite things</p>
-
-      <p>3.</p>
-
-      <p>4.</p>
-
-      <Divider />
-
-      <p>More features coming soon...</p>
-    </>
   );
 }
 
