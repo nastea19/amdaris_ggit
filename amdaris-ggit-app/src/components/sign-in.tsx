@@ -19,18 +19,15 @@ function SignIn() {
 
   const onSubmit = (data: FormData) => {
     console.log(data);
-    toast.success("Signed in successfully", {
-      position: "top-right",
-      autoClose: 3000,
-    });
-    toast.error("Error", {
-      position: "top-right",
-      autoClose: 3000, // 3 seconds
-    });
 
     const isLoginSuccess = loginUser(data.email, data.password);
     if (isLoginSuccess) {
       navigate("/");
+      toast.success("Signed in successfully", {
+        position: "top-right",
+        autoClose: 3000,
+      });
+      window.location.reload();
     }
   };
 
@@ -46,34 +43,34 @@ function SignIn() {
     <div className="form-container">
       <form className="centred-form" onSubmit={handleSubmit(onSubmit)}>
         <div>
-        <label>Email</label>  {/* Line changed: Added label element */}
-        <Controller
-          name="email"
-          control={control}
-          defaultValue=""
-          rules={validationRules.email}
-          render={({ field }) => <input type="email" {...field} />}
-        />
-        {formState.errors.email && (
-          <p className="error">{formState.errors.email.message}</p>
-        )}
-      </div>
+          <label>Email</label> {/* Line changed: Added label element */}
+          <Controller
+            name="email"
+            control={control}
+            defaultValue=""
+            rules={validationRules.email}
+            render={({ field }) => <input type="email" {...field} />}
+          />
+          {formState.errors.email && (
+            <p className="error">{formState.errors.email.message}</p>
+          )}
+        </div>
 
-      <div>
-        <label>Password</label>  {/* Line changed: Added label element */}
-        <Controller
-          name="password"
-          control={control}
-          defaultValue=""
-          rules={validationRules.password}
-          render={({ field }) => <input type="password" {...field} />}
-        />
-        {formState.errors.password && (
-          <p className="error">{formState.errors.password.message}</p>
-        )}
-      </div>
+        <div>
+          <label>Password</label> {/* Line changed: Added label element */}
+          <Controller
+            name="password"
+            control={control}
+            defaultValue=""
+            rules={validationRules.password}
+            render={({ field }) => <input type="password" {...field} />}
+          />
+          {formState.errors.password && (
+            <p className="error">{formState.errors.password.message}</p>
+          )}
+        </div>
 
-          <br />
+        <br />
         <button type="submit">Sign In</button>
       </form>
     </div>

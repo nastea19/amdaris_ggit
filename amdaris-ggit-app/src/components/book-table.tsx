@@ -1,24 +1,23 @@
-import React, { useEffect, useState } from "react";
-import "../App.css"
+import AddIcon from "@mui/icons-material/Add";
+import CancelIcon from "@mui/icons-material/Cancel";
 import EditIcon from "@mui/icons-material/Edit";
 import SaveIcon from "@mui/icons-material/Save";
-import CancelIcon from "@mui/icons-material/Cancel";
-import AddIcon from "@mui/icons-material/Add";
 import {
+  IconButton,
+  Input,
+  MenuItem,
   Paper,
+  Select,
   Table,
   TableBody,
   TableCell,
   TableContainer,
   TableHead,
   TableRow,
-  IconButton,
-  Input,
-  MenuItem,
-  Select,
 } from "@mui/material";
+import { useEffect, useState } from "react";
+import "../App.css";
 import { Book } from "./books";
-import { FormatBoldOutlined } from "@mui/icons-material";
 
 interface BookTableProps {
   books: Book[];
@@ -95,21 +94,25 @@ export default function BookTable({
 
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ 
-        minWidth: 700,
-        fontFamily: "Libre Baskerville, serif",
-        }} aria-label="customized table" className="books-table">
+      <Table
+        sx={{
+          minWidth: 700,
+          fontFamily: "Libre Baskerville, serif",
+        }}
+        aria-label="customized table"
+        className="books-table"
+      >
         <TableHead>
-        <TableRow 
-          sx={{ 
-            fontFamily: "Libre Baskerville, serif",
-            fontWeight: "bold"
-          }}
-        >
+          <TableRow
+            sx={{
+              fontFamily: "Libre Baskerville, serif",
+              fontWeight: "bold",
+            }}
+          >
             <TableCell>Name</TableCell>
             <TableCell>Author</TableCell>
             <TableCell>Language</TableCell>
-            <TableCell>Read Status</TableCell>
+            {!addMode ? <TableCell>Read Status</TableCell> : undefined}
             <TableCell>Action</TableCell>
           </TableRow>
         </TableHead>

@@ -14,6 +14,7 @@ export const paths = {
   Books: "/books",
   Movies: "/movies",
   SignUp: "/sign-up",
+  Home: "/",
 };
 
 export interface NavLinkProps {
@@ -27,15 +28,20 @@ export const navLinks = [
   { title: "Sign In", path: paths.SignIn, component: SignIn },
   { title: "Sign Up", path: paths.SignUp, component: SignUp },
   { title: "About", path: paths.About, component: About },
+  { title: "Home", path: paths.Home, component: About },
   { title: "Profile", path: paths.Profile, component: Profile },
   { title: "Books", path: paths.Books, component: Books },
   { title: "Movies", path: paths.Movies, component: Movies },
 ] as NavLinkProps[];
 
-// export const navLinks = [
-//   { title: "About", path: paths.About, component: About },
-// ] as NavLinkProps[];
+export const loginLinks = [
+  { title: "Sign In", path: paths.SignIn, component: SignIn },
+  { title: "Sign Up", path: paths.SignUp, component: SignUp },
+  { title: "About", path: paths.About, component: About },
+] as NavLinkProps[];
 
-// export const links = [
-//   { title: "Profile", path: paths.Profile, component: Profile },
-// ] as NavLinkProps[];
+export const userLinks = [
+  { title: "About", path: paths.About, component: About },
+  { title: "Books", path: paths.Books, component: Books },
+  { title: "Movies", path: paths.Movies, component: Movies },
+] as NavLinkProps[];

@@ -14,6 +14,7 @@ export const getBooks = (): Book[] => {
 // Function to save books to localStorage
 export const saveBooks = (books: Book[]): void => {
   localStorage.setItem(BOOKS_STORAGE_KEY, JSON.stringify(books));
+  window.location.reload();
 };
 
 // Function to add a new book

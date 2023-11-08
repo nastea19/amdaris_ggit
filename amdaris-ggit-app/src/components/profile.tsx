@@ -1,33 +1,30 @@
 import React from "react";
 import "../App.css";
 import { Box, Button, Link } from "@mui/material";
-import { logoutUser } from "../services/auth-service";
+import { getLoggedInUser, logoutUser, User } from "../services/auth-service";
 
 export function Profile() {
+  const user: User = getLoggedInUser()!;
   return (
     <>
       <>
         <>
           <>
-            <div className="App">Profile Component</div>
-
             <p>Profile Page</p>
           </>
-
-          <p>User's Info from Sign-IN</p>
         </>
 
         <Box>
-          <p>First name:</p>
+          <p>First name: {user.firstName}</p>
 
-          <p>Last name:</p>
+          <p>Last name: {user.lastName}</p>
 
-          <p>Email:</p>
+          <p>Email: {user.email}</p>
 
-          <p>Gender:</p>
+          <p>Gender: {user.gender}</p>
         </Box>
       </>
-      <Link href="/log-out">
+      <Link href="/">
         <Button
           variant="text"
           onClick={() => {
