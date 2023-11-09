@@ -5,10 +5,8 @@ Source Sans Pro
 pairing serif and sans serif
  */
 
-body {
+ body {
   background-color: #C3C7F3;
-  margin-top: 100px;
-  margin-bottom: 100px;
 }
 
 .all {
@@ -24,6 +22,19 @@ body {
   font-weight: bold;
 }
 
+
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
 .footer {
   display: flex;
   /* justify-content: center; */
@@ -35,27 +46,9 @@ body {
   border-top: 1px solid #ccc;
   padding: 7px;
   z-index: 100;
-  font-size: 0.7em;
-  height: 75px;
   /* text-align: center; */
 }
 
-.header {
-  height: 55px;
-  background-color: #C3C7F3;;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-
-  display: grid;
-  height: 100px;
-  place-items: center;
-}
 
 .form-container {
   display: flex;
@@ -132,27 +125,49 @@ button[type="submit"]:hover {
   margin-bottom: 10px; 
 } */
 
-  label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  input {
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .select-container {
-    position: relative;
-  }
+.bookcard {
+  display: flex;
+  flex-direction: row; /* Set to "row" for horizontal line */
+  align-items: stretch; /* Add this line to make all items have the same height */
+  font-family: "Libre Baskerville, serif";
+  margin: 30px; /* Add margin for space between items */
+  background-color: #E3AADD;
+}
 
-  .custom-select {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-    color: #333;
-    outline: none;
-  }
+.bookcardspacing {
+  margin: 7px;
+  /* background-color: #F3DCDC; */
+}
+
+.h2 {
+  text-align: center;
+}
+
+BookCard {
+  background-color: #F3DCDC;
+
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.select-container {
+  position: relative;
+}
+
+.custom-select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+  outline: none;
+}
