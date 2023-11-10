@@ -40,8 +40,7 @@ export default function Movies() {
 
   return (
     <Box>
-
-<div className="bookcard">
+      <div className="bookcard">
         <div className="bookcardspacing">
           <MovieCard
             title="Hidden Love (2023)"
@@ -90,7 +89,7 @@ export default function Movies() {
           flexDirection: "column",
           alignItems: "center",
         }}
-      ></div>
+      >
       <Tabs
         value={value}
         onChange={handleChange}
@@ -106,7 +105,7 @@ export default function Movies() {
         <Tab value="watching" label="I'm watching" />
         <Tab value="watched" label="I watched" />
       </Tabs>
-
+    </div>
       <MovieTable
         movies={rowMovies}
         onAddMovie={(newMovie: Movie) => {

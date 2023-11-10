@@ -46,4 +46,4 @@ export const updateMovieStatus = (movieId: number, watchStatus: string): void =>
     return movie;
   });
   saveMovies(updatedMovies);
-}
+};
