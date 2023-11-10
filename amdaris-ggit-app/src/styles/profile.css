@@ -1,0 +1,47 @@
+.card {
+  margin-top: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 8px 0 ;
+  max-width: 300px;
+  margin: auto;
+  background-color: #C8A8E9;
+
+  border-radius: 7%;
+
+  position: relative;
+}
+
+.profile-info {
+  color: #1A237E;
+  font-size: 20px;
+  
+}
+
+
+.profile-pic .gg-profile {
+  transform: scale(2);
+}
+
+.profile-pic {
+  margin-top: 10px;
+}
+
+
+.profile-logout {
+  text-align: center;
+  position: absolute;
+  left: 10px; /* Adjust the left value according to your preference */
+  top: 100%; /* Position the element below the parent element */
+}
+
+.black-text {
+  color: black;
+}
+
+.user-name {  
+  text-align: center;
+  font-size: 120%;
+}
