@@ -20,6 +20,17 @@ export const addMovie = (newMovie: Movie): void => {
   saveMovies(updatedMovies)
 }
 
+export const updateMovie = (movieId: number, updatedBook: Movie): void => {
+  const existingMovies = getMovies();
+  const updatedMovies = existingMovies.map((movie) => {
+    if (movie.id === movieId) {
+      return { ...movie, ...updatedBook };
+    }
+    return movie;
+  });
+  saveMovies(updatedMovies);
+};
+
 export const deleteMovie = (movieId: number): void => {
   const existingMovies = getMovies();
   const updatedMovies = existingMovies.filter((movie) => movie.id !== movieId);

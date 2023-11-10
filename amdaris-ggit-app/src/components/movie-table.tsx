@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import EditIcon from "@mui/icons-material/Edit";
+import CancelIcon from "@mui/icons-material/Cancel";
 import SaveIcon from "@mui/icons-material/Save";
 import AddIcon from "@mui/icons-material/Add";
 import {
@@ -14,17 +15,20 @@ import {
   Input,
 } from "@mui/material";
 import { Movie } from "./movies";
+import "../App.css";
 
 interface MovieTableProps {
   movies: Movie[];
   onAddMovie: (newMovie: Movie) => void;
   moviesLength: number;
+  onEditMovie: (movie: Movie, movieId: number) => void;
 }
 
 export default function MovieTable({
   movies,
   onAddMovie,
   moviesLength,
+  onEditMovie,
 }: MovieTableProps) {
   const [editMode, setEditMode] = useState(false);
   const [addMode, setAddMode] = useState(false);
@@ -44,10 +48,11 @@ export default function MovieTable({
     setEditItemId(id);
   };
 
-  const handleSaveClick = () => {
+  const handleSaveClick = (row: Movie) => {
     setEditMode(false);
     setEditItemId(null);
     setEditedMovies([...editedMovies]);
+    onEditMovie(row, row.id);
   };
 
   const handleSaveNewItemClick = () => {
@@ -81,16 +86,35 @@ export default function MovieTable({
     setEditedMovies(updatedMovies);
   };
 
+const handleCancelClick = () => {
+  setAddMode(false);
+  setEditMode(false);
+  setEditedMovies(movies);
+};
+
   return (
 
     <TableContainer component={Paper}> 
-      <Table sx={{ minWidth: 700}} aria-label="costumized-table">
+      <Table 
+        sx={{
+          minWidth: 700,
+          fontFamily: "Libre Baskerville, serif",
+        }}
+        aria-label="customized table"
+        className="books-table"
+      >
         <TableHead>
-          <TableRow>
+          <TableRow
+            sx={{
+              fontFamily: "Libre Baskerville, serif",
+              fontWeight: "bold",
+            }}
+          >
             <TableCell>Title</TableCell>
             <TableCell>Genre</TableCell>
             <TableCell>Country</TableCell>
             <TableCell>Episodes</TableCell>
+            {!addMode ? <TableCell>Watch Status</TableCell> : undefined}
             <TableCell>Status</TableCell>
           </TableRow>
         </TableHead>
@@ -147,17 +171,22 @@ export default function MovieTable({
               </TableCell>
 
               <TableCell>
-                {editMode ? (
-                  <IconButton onClick={handleSaveClick}>
-                    <SaveIcon />
-                  </IconButton>
+                {editMode && editItemId === row.id ? (
+                  <>
+                    <IconButton onClick={() => handleSaveClick(row)}>
+                      <SaveIcon />
+                    </IconButton>
+
+                    <IconButton onClick={handleCancelClick}>
+                      <CancelIcon />
+                    </IconButton>
+                  </>
                 ) : (
                   <IconButton onClick={() => handleEditClick(row.id)}>
                     <EditIcon />
                   </IconButton>
                 )}
               </TableCell>
-
             </TableRow>
           ))}
 
