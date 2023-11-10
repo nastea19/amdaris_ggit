@@ -22,8 +22,7 @@ export default function Movies() {
   const toWatchMovies = movies.filter((x) => x.watchStatus === "to watch");
   const watchingMovies = movies.filter((x) => x.watchStatus === "watching");
 
-  const [rowMovies, setMovies ] = React.useState<Movie[]>(watchingMovies);
-
+  const [rowMovies, setMovies] = React.useState<Movie[]>(watchingMovies);
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     if (newValue === "to watch") {
@@ -38,7 +37,9 @@ export default function Movies() {
   };
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center"  }}>
+    <Box
+      sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+    >
       <Tabs
         value={value}
         onChange={handleChange}
@@ -60,7 +61,6 @@ export default function Movies() {
         }}
         moviesLength={moviesLength}
       />
-
     </Box>
   );
 }
