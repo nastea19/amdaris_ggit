@@ -9,7 +9,7 @@ export function Profile() {
   return (
 
   <>
-      <div className="card">
+      <div  style ={{marginTop: "20px"}} className="card">
 
         <div className="profile-pic">
           <link href='https://unpkg.com/css.gg@2.0.0/icons/css/profile.css' rel='stylesheet'></link>
@@ -25,19 +25,6 @@ export function Profile() {
           <p> <span className="black-text"> Gender: </span>{user.gender}</p>
           
         </div>
-
-        <div className="profile-logout">
-        <Link href="/">
-          <Button
-            variant="text"
-            onClick={() => {
-              logoutUser();
-            }}
-          >
-            <span className="black-text">Log Out</span>
-          </Button>
-        </Link>
-       </div>
 
       </div>
 
